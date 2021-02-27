@@ -65,7 +65,7 @@ class StudyTest {
 ```
 
 ## 실행 결과
-![실행결과](https://raw.githubusercontent.com/smpark1020/tistory-smpark1020/master/images/%5B%EA%B8%B0%EB%B3%B8%EC%95%A0%EB%85%B8%ED%85%8C%EC%9D%B4%EC%85%98%5D1.PNG)
+![실행결과](https://raw.githubusercontent.com/smpark1020/tistory-smpark1020/master/images/%5BJUnit5%5D%20%EA%B8%B0%EB%B3%B8%20%EC%95%A0%EB%85%B8%ED%85%8C%EC%9D%B4%EC%85%98/1.PNG)
 
 ## Reference
 * [더 자바, 애플리케이션을 테스트하는 다양한 방법](https://www.inflearn.com/course/%EA%B0%9C%EB%B0%9C%EC%9E%90-%EC%9D%B8%ED%84%B0%EB%B7%B0?inst=9746dbc4)
