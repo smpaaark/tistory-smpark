@@ -5,11 +5,11 @@
 스프링 부트 2.4.3
 
 ## 메이븐 의존성
-![dependency](https://raw.githubusercontent.com/smpark1020/tistory-smpark1020/master/images/%5BJUnit5%5D%20Jupiter/2.PNG)
+![dependency](https://raw.githubusercontent.com/smpark1020/tistory-smpark1020/master/images/%5BJUnit5%5D%20Jupiter/3.PNG)
 spring-boot-starter를 통해 JUnit5와 jupiter 관련 의존성이 추가된다.
 
 ## Test 코드
-![테스트코드l](https://raw.githubusercontent.com/smpark1020/tistory-smpark1020/master/images/%5BJUnit5%5D%20Jupiter/3.PNG)
+![테스트코드l](https://raw.githubusercontent.com/smpark1020/tistory-smpark1020/master/images/%5BJUnit5%5D%20Jupiter/2.PNG)
 import를 보면 jupiter가 사용된 것을 확인할 수 있다.
 
 ## 스프링 부트를 사용하지 않을 때 JUnit5를 사용하고 싶다면?
