@@ -4,26 +4,26 @@
 ## 내가 푼 코드
 ```
 public int getDecimalValue(ListNode head) {
-		int size = 0;
-		ListNode currentNode = head;
-		while (currentNode != null) {
-			size++;
-			currentNode = currentNode.next;
-		}
-		
-		int result = 0;
-		currentNode = head;
-		while (currentNode != null) {
-			size--;
-			if (currentNode.val == 1) {
-				result += Math.pow(2, size);
-			}
-			
-			currentNode = currentNode.next;
-		}
-		
-		return result;
-	}
+    int size = 0;
+    ListNode currentNode = head;
+    while (currentNode != null) {
+        size++;
+        currentNode = currentNode.next;
+    }
+    
+    int result = 0;
+    currentNode = head;
+    while (currentNode != null) {
+        size--;
+        if (currentNode.val == 1) {
+            result += Math.pow(2, size);
+        }
+        
+        currentNode = currentNode.next;
+    }
+    
+    return result;
+}
 ```
 * 시간 복잡도: O(n)
 * 공간 복잡도: O(1)
