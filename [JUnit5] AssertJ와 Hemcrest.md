@@ -3,7 +3,7 @@ spring-boot-starter를 사용하면 jupiter의 Assertion 말고도 AssertJ나 He
 * 의존성 확인
 ![6](https://raw.githubusercontent.com/smpark1020/tistory-smpark/master/images/%5BJUnit5%5D%20%EC%9E%90%EC%A3%BC%20%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94%20Assertion/6.PNG)
 
-* Assertj 사용 코드
+* AssertJ 사용 코드
 ```
 @Test
 @DisplayName("스터디 만들기 😁😁")
