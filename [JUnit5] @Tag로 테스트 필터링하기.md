@@ -21,7 +21,7 @@ void create_new_study_again() {
 ### 결과(두 태그 모두 실행 됨)
 ![두개 모두 실행됨](https://raw.githubusercontent.com/smpark1020/tistory-smpark/master/images/%5BJUnit5%5D%20%ED%83%9C%EA%B9%85%EA%B3%BC%20%ED%95%84%ED%84%B0%EB%A7%81/1.PNG)   
 
-### 이클립스에 태그 조건 추가
+### 이클립스에 태그 조건 추가하여 필터링
 ![태그추가](https://raw.githubusercontent.com/smpark1020/tistory-smpark/master/images/%5BJUnit5%5D%20%ED%83%9C%EA%B9%85%EA%B3%BC%20%ED%95%84%ED%84%B0%EB%A7%81/2.PNG)
 
 ### 결과(fast 태그 걸린 테스트만 실행됨)
