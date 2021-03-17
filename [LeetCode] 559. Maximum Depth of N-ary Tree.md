@@ -7,90 +7,35 @@ Nary-Tree 각 그룹의 자식 노드는 null로 구분되어 삽입된다.(예�
 
 ## 내가 푼 코드
 ```
-public int[] kWeakestRows(int[][] mat, int k) {
-    PriorityQueue<Mat> q = new PriorityQueue<Mat>();
+private int maxDepth = 0;
 
-    for (int i = 0; i < mat.length; i++) {
-        q.offer(new Mat(getSoldierCount(mat[i]), i));
+public int maxDepth(Node root) {
+    if (root == null) {
+        return 0;
     }
     
-    int[] result = new int[k];
-    for (int i = 0; i < k; i++) {
-        result[i] = q.poll().index;
-    }
+    dfs(root, 1);
     
-    return result;
+    return this.maxDepth;
 }
 
-private int getSoldierCount(int[] array) {
-    int start = 0;
-    int end = array.length;
-    while (start <= end) {
-        int mid = (start + end) / 2;
-        if (array[mid] == 1 && mid + 1 == array.length) {
-            return mid + 1;
-        } else if (array[mid] == 1 && array[mid + 1] == 0) {
-            return mid + 1;
-        } else if (array[mid] == 1) {
-            start = mid + 1;
-        } else {
-            end = mid - 1;
-        }
+private void dfs(Node node, int depth) {
+    if (depth > this.maxDepth) {
+        this.maxDepth = depth;
     }
     
-    return 0;
+    if (node.children == null) {
+        return;
+    }
+    
+    for (Node child : node.children) {
+        dfs(child, depth + 1);
+    }
 }
-
-
-static class Mat implements Comparable<Mat>{
-    
-    private int soldierCount;
-    private int index;
-    
-    public Mat(int soldierCount, int index) {
-        super();
-        this.soldierCount = soldierCount;
-        this.index = index;
-    }
-
-    public int getSoldierCount() {
-        return soldierCount;
-    }
-    
-    
-    public void setSoldierCount(int soldierCount) {
-        this.soldierCount = soldierCount;
-    }
-    
-    public int getIndex() {
-        return index;
-    }
-    
-    public void setIndex(int index) {
-        this.index = index;
-    }
-
-    @Override
-    public int compareTo(Mat mat) {
-        if (this.soldierCount > mat.soldierCount) {
-            return 1;
-        } else if (this.soldierCount == mat.soldierCount) {
-            if (this.index > mat.index) {
-                return 1;
-            }
-        }
-        
-        return -1;
-    }
-
-    @Override
-    public String toString() {
-        return "Mat [soldierCount=" + soldierCount + ", index=" + index + "]";
-    }
 ```
-* 시간 복잡도: O(nlogn)
+* 시간 복잡도: O(n)
 * 공간 복잡도: O(n)
 
 ## Reference
-* [문제](https://leetcode.com/problems/the-k-weakest-rows-in-a-matrix/)
-* [내가 푼 코드](https://github.com/smpark1020/leetcode-practice/blob/master/src/leetcode/binarysearch/Q1337.java)
+* [문제](https://leetcode.com/problems/maximum-depth-of-n-ary-tree/)
+* [내가 푼 코드](https://github.com/smpark1020/leetcode-practice/blob/master/src/leetcode/dfs/Q559.java)
