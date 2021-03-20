@@ -30,8 +30,8 @@ public int getImportance(List<Employee> employees, int id) {
     return sum;
 }
 ```
-* 시간 복잡도: O(n)
-* 공간 복잡도: O(n²)
+* 시간 복잡도: O(n²)
+* 공간 복잡도: O(n)
 
 ## Reference
 * [문제](https://leetcode.com/problems/employee-importance/)
