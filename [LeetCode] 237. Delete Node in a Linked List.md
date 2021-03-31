@@ -6,23 +6,14 @@
 
 ## 내가 푼 코드
 ```
-public int maximumWealth(int[][] accounts) {
-    int maximumWealth = 0;
-    for (int[] account : accounts) {
-        int sum = 0;
-        for (int amount : account) {
-            sum += amount;
-        }
-        
-        maximumWealth = Math.max(maximumWealth, sum);
-    }
-    
-    return maximumWealth;
+public void deleteNode(ListNode node) {
+    node.val = node.next.val;
+    node.next = node.next.next;
 }
 ```
-* 시간 복잡도: O(n)
+* 시간 복잡도: O(1)
 * 공간 복잡도: O(1)
 
 ## Reference
-* [문제](https://leetcode.com/problems/richest-customer-wealth/)
-* [내가 푼 코드](https://github.com/smpark1020/leetcode-practice/blob/master/src/leetcode/array/Q1672.java)
+* [문제](https://leetcode.com/problems/delete-node-in-a-linked-list/)
+* [내가 푼 코드](https://github.com/smpark1020/leetcode-practice/blob/master/src/leetcode/linkedlist/Q237.java)
