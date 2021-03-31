@@ -42,4 +42,4 @@ public int[] shuffle_other(int[] nums, int n) {
 
 ## Reference
 * [문제](https://leetcode.com/problems/shuffle-the-array/)
-* [내가 푼 코드](https://github.com/smpark1020/leetcode-practice/blob/master/src/leetcode/greedy/Q1221.java)
+* [내가 푼 코드](https://github.com/smpark1020/leetcode-practice/blob/master/src/leetcode/array/Q1470.java)
