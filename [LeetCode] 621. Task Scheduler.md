@@ -9,136 +9,39 @@ CPU가 지정된 모든 작업을 완료하는 데 걸리는 최소 단위 수�
 
 ## 내가 푼 코드
 ```
-class MyCircularDeque {
-		
-    private int[] array;
-    private final int qSize;
-    
-    /** Initialize your data structure here. Set the size of the deque to be k. */
-    public MyCircularDeque(int k) {
-        this.array = new int[k];
-        for (int i = 0; i < k; i++) {
-            this.array[i] = -1;
-        }
-        
-        this.qSize = k;
+public int leastInterval(char[] tasks, int n) {
+    int[] counts = new int[26];
+    for (char c : tasks) {
+        counts[c - 'A']++;
     }
     
-    /** Adds an item at the front of Deque. Return true if the operation is successful. */
-    public boolean insertFront(int value) {
-        if (this.isFull()) {
-            return false;
+    Queue<Integer> queue = new PriorityQueue<>((a ,b) -> b - a);
+    for (int count : counts) {
+        if (count > 0) {
+            queue.offer(count);
         }
-        
-        for (int i = this.qSize - 1; i > 0; i--) {
-            if (this.array[i - 1] != -1) {
-                this.array[i] = this.array[i - 1];
-            }
-        }
-        
-        this.array[0] = value;
-        
-        return true;
     }
     
-    /** Adds an item at the rear of Deque. Return true if the operation is successful. */
-    public boolean insertLast(int value) {
-        if (this.isFull()) {
-            return false;
+    int maxTask = queue.poll();
+    int idle = (maxTask - 1) * n;
+    
+    while (!queue.isEmpty()) {
+        int temp = Math.min(queue.peek(), maxTask - 1);
+        if (idle - temp >= 0) {
+            idle -= Math.min(queue.poll(), maxTask - 1);
+        } else {
+            idle = 0;
+            break;
         }
-        
-        for (int i = this.qSize - 1; i > 0; i--) {
-            if (this.array[i - 1] != -1) {
-                this.array[i] = value;
-                
-                return true;
-            }
-        }
-        
-        this.array[0] = value;
-        return true;
     }
     
-    /** Deletes an item from the front of Deque. Return true if the operation is successful. */
-    public boolean deleteFront() {
-        if (this.isEmpty()) {
-            return false;
-        }
-        
-        this.array[0] = -1;
-        
-        for (int i = 1; i < this.qSize; i++) {
-            if (this.array[i] != -1) {
-                this.array[i - 1] = this.array[i];
-                this.array[i] = -1;
-            }
-        }
-        
-        return true;
-    }
-    
-    /** Deletes an item from the rear of Deque. Return true if the operation is successful. */
-    public boolean deleteLast() {
-        if (this.isEmpty()) {
-            return false;
-        }
-        
-        for (int i = this.qSize - 1; i >= 0; i--) {
-            if (this.array[i] != -1) {
-                this.array[i] = -1;
-        
-                return true;
-            }
-        }
-        
-        return false;
-    }
-    
-    /** Get the front item from the deque. */
-    public int getFront() {
-        if (this.isEmpty()) {
-            return -1;
-        }
-        
-        return this.array[0];
-    }
-    
-    /** Get the last item from the deque. */
-    public int getRear() {
-        if (this.isEmpty()) {
-            return -1;
-        }
-        
-        for (int i = this.qSize - 1; i >= 0; i--) {
-            if (this.array[i] != -1) {
-                return this.array[i];
-            }
-        }
-        
-        return -1;
-    }
-    
-    /** Checks whether the circular deque is empty or not. */
-    public boolean isEmpty() {
-        if (this.array[0] == -1) {
-            return true;
-        }
-        
-        return  false;
-    }
-    
-    /** Checks whether the circular deque is full or not. */
-    public boolean isFull() {
-        if (this.array[this.qSize - 1] == -1) {
-            return false;
-        }
-        
-        return true;
-    }
-    
+    return tasks.length + idle;
 }
 ```
+* 시간 복잡도: O(n)
+* 공간 복잡도: O(n)
+> 이 문제 해결하는데 몇일은 걸린 것 같다. 물론 요즘 너무 바빠서 공부하는 시간이 부족했던 것도 있지만 문제 자체가 너무 어려웠다...
 
 ## Reference
-* [문제](https://leetcode.com/problems/design-circular-deque/)
-* [내가 푼 코드](https://github.com/smpark1020/leetcode-practice/blob/master/src/leetcode/queue/Q641.java)
+* [문제](https://leetcode.com/problems/task-scheduler/)
+* [내가 푼 코드](https://github.com/smpark1020/leetcode-practice/blob/master/src/leetcode/queue/Q621.java)
