@@ -7,48 +7,27 @@ T0 = 0, T1 = 1, T2 = 1, and Tn+3 = Tn + Tn+1 + Tn+2 for n >= 0.
 
 ## 내가 푼 코드
 ```
-public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
-    if (l1 == null && l2 == null) {
-        return null;
+public int tribonacci(int n) {
+    if (n == 0) {
+        return 0;
+    } else if (n == 1 || n == 2) {
+        num[n] = 1;
+        return 1;
     }
     
-    ListNode newNode = new ListNode(101);
-    recursion(l1, l2, newNode);
+    int result  = 0;
+    result += num[n - 3] > 0 ? num[n - 3] : tribonacci(n - 3);
+    result += num[n - 2] > 0 ? num[n - 2] : tribonacci(n - 2);
+    result += num[n - 1] > 0 ? num[n - 1] : tribonacci(n - 1);
     
-    return newNode.next;
-}
-
-private void recursion(ListNode l1, ListNode l2, ListNode newNode) {
-    if (l1 == null && l2 == null) {
-        return;
-    } 
+    num[n] = result;
     
-    ListNode temp1 = null;
-    ListNode temp2 = null;
-    if (l1 != null && l2 == null) {
-        newNode.next = new ListNode(l1.val);
-        temp1 = l1.next;
-    } else if (l1 == null && l2 != null) {
-        newNode.next = new ListNode(l2.val);
-        temp2 = l2.next;
-    } else {
-        if (l1.val < l2.val) {
-            newNode.next = new ListNode(l1.val);
-            temp1 = l1.next;
-            temp2 = l2;
-        } else {
-            newNode.next = new ListNode(l2.val);
-            temp1 = l1;
-            temp2 = l2.next;
-        }
-    }
-    
-    recursion(temp1, temp2, newNode.next);
+    return result;
 }
 ```
 * 시간 복잡도: O(n)
 * 공간 복잡도: O(n)
 
 ## Reference
-* [문제](https://leetcode.com/problems/merge-two-sorted-lists/)
-* [내가 푼 코드](https://github.com/smpark1020/leetcode-practice/blob/master/src/leetcode/recursion/Q21.java)
+* [문제](https://leetcode.com/problems/n-th-tribonacci-number/)
+* [내가 푼 코드](https://github.com/smpark1020/leetcode-practice/blob/master/src/leetcode/recursion/Q1137.java)
